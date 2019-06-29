@@ -24,3 +24,13 @@ Web Developers that are familiar with REST term, can think of CRUD as the origin
 * GET = Read
 * PUT = Update (Also, PATCH is another way to Update.)
 * DELETE = Delete
+
+### Mention three tools we can use to make AJAX requests.
+
+* Fetch API
+* Axios
+* jQuery $.ajax
+
+Also: 
+* Superagent
+* Request
