@@ -1,16 +1,14 @@
-.Smurfs {
-    color: MidnightBlue;
-    overflow-y: scroll;
-    height: 85vh;
-}
-
-.Smurfs h1 {
-    text-shadow: 3px 3px 3px rgba(161, 198, 253, 0.8);
+h1 {
+    text-shadow: 3px 3px 3px rgba(161, 198, 253, 0.9);
+    text-shadow: -3px -3px -3px rgba(161, 198, 253, 0.9);
 }
 
 .Smurfs ul {
     margin: 0;
-    padding: 0;
+    padding: 0 3rem;
+    overflow-y: scroll;
+    height: 75vh;
+    /* background-color: rgba(161, 198, 253, 0.5); */
 }
 
 .SmurfForm {
