@@ -1,4 +1,4 @@
-## Self-Study/Essay Questions
+# Self-Study/Essay Questions
 
 ### Explain the differences between `client-side routing` and `server-side routing`.
 
@@ -17,3 +17,10 @@
 * (D)elete
 
 Web Developers that are familiar with REST term, can think of CRUD as the original that REST (Representational State Transfer) was derived from. It is a type of order of operations to help understand the functions that almost any database type application should have. (Meaning any application that pulls and retrieves lists of data to be displayed.) 
+
+### Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+* POST = Create
+* GET = Read
+* PUT = Update (Also, PATCH is another way to Update.)
+* DELETE = Delete
