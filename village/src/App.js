@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { Route, NavLink } from "react-router-dom";
 import axios from "axios";
-import './App.css';
+
+// import Components
 import Home from "./components/Home"
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import SmurfbyID from './components/SmurfbyID';
+
+// import style sheets
+import './App.css';
+import './components/smurfs.css';
 
 class App extends Component {
   constructor(props) {
