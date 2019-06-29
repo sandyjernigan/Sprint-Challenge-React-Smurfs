@@ -22,7 +22,7 @@ class SmurfForm extends Component {
     .then((response) => {
       this.setState({ errorMessage: null })
       this.props.updateState(response.data)
-      this.props.history.push("/")
+      this.props.history.push("/smurfs")
     })
     .catch((err) => {
       console.log(err)
