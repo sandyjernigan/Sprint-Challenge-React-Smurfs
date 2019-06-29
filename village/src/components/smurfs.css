@@ -1,5 +1,7 @@
 .Smurfs {
     color: MidnightBlue;
+    overflow-y: scroll;
+    height: 85vh;
 }
 
 .Smurfs h1 {

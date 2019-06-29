@@ -3,10 +3,7 @@ import { Route, NavLink } from "react-router-dom";
 import axios from "axios";
 
 // import Components
-import Home from "./components/Home"
-import SmurfForm from './components/SmurfForm';
-import Smurfs from './components/Smurfs';
-import SmurfbyID from './components/SmurfbyID';
+import { Home, Footer, Smurfs, SmurfForm, SmurfbyID } from "./components/"
 
 // import style sheets
 import './App.css';
@@ -58,6 +55,8 @@ class App extends Component {
         <Route path="/smurfs" exact render={(props) => <Smurfs {...props} smurfs={smurfs} />} />
         <Route path="/smurf/:id" render={(props) => <SmurfbyID {...props} smurfs={smurfs} />} />
         <Route path="/new-smurf" exact render={(props) => <SmurfForm {...props} smurfs={smurfs} updateState={this.updateState} />} />
+        
+        <Footer />
       </div>
     );
   }
