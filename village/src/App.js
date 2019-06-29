@@ -9,9 +9,25 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+      errMsg: null
     };
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+  
+  componentDidMount() {
+    // retrieve an array all the Smurfs in the Smurf DB
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then(response => {
+        this.setState({
+          smurfs: response.data
+        });
+      })
+      .catch(err => {
+        console.log("Error:", err);
+        this.setState({ errMsg: err });
+      });
+    }
+
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
