@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+
+nav {
+  margin: 1rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+a:hover {
+  color: blue;
+}

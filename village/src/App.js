@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-// import { Route, Link } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import axios from "axios";
 import './App.css';
+import Home from "./components/Home"
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfbyID from './components/SmurfbyID';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +15,7 @@ class App extends Component {
       errMsg: null
     };
   }
-  
+
   componentDidMount() {
     // retrieve an array all the Smurfs in the Smurf DB
     axios
@@ -37,10 +39,20 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
+    const { smurfs } = this.state
+
     return (
       <div className="App">
-        <SmurfForm updateState={this.updateState} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <nav>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/smurfs">Smurfs Village</NavLink>
+          <NavLink to="/new-smurf">Add a New Smurf</NavLink>
+        </nav>
+
+        <Route path="/" exact render={(props) => <Home {...props} smurfs={smurfs} />} />
+        <Route path="/smurfs" exact render={(props) => <Smurfs {...props} smurfs={smurfs} />} />
+        <Route path="/smurf/:id" render={(props) => <SmurfbyID {...props} smurfs={smurfs} />} />
+        <Route path="/new-smurf" exact render={(props) => <SmurfForm {...props} smurfs={smurfs} updateState={this.updateState} />} />
       </div>
     );
   }
