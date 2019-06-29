@@ -22,7 +22,7 @@ class SmurfForm extends Component {
     .then((response) => {
       this.setState({ errorMessage: null })
       this.props.updateState(response.data)
-      // this.props.history.push("/") -- already on this page but will need when divided with routes
+      this.props.history.push("/")
     })
     .catch((err) => {
       console.log(err)
@@ -64,7 +64,6 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
-        {/* <p>{this.state.errorMessage}</p> */}
       </div>
     );
   }

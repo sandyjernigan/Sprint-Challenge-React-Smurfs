@@ -5,3 +5,26 @@
 .Smurfs h1 {
     text-shadow: 3px 3px 3px rgba(161, 198, 253, 0.8);
 }
+
+.Smurfs ul {
+    margin: 0;
+    padding: 0;
+}
+
+.SmurfForm {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.SmurfForm input {
+    height: 30px;
+    margin: 0.5em;
+    padding: 0.5em;
+    display: block;
+}
+
+button {
+    margin: 10px;
+    height: 50px;
+    width: 150px;
+  }
