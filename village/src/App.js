@@ -28,6 +28,9 @@ class App extends Component {
       });
     }
 
+    // Set event name to the value in the form
+    handleChange = (e) => { this.setState({ [e.target.name]: e.target.value }) }
+
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
