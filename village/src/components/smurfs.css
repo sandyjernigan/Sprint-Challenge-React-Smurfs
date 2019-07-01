@@ -28,3 +28,9 @@ button {
     height: 50px;
     width: 150px;
   }
+
+  button.update {
+    margin: 10px;
+    height: 25px;
+    width: 75px;
+  }

@@ -5,6 +5,8 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      smurf: {},
+      id: '',
       name: '',
       age: '',
       height: '',
@@ -12,35 +14,71 @@ class SmurfForm extends Component {
     };
   }
 
+  componentDidMount() {
+    const id = this.props.match.params.id 
+    const smurf = this.props.smurfs.find(i => String(i.id) === id)
+      this.setState({ 
+        name: smurf.name, 
+        age: smurf.age, 
+        height: smurf.height });
+  }
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  updateSmurf = e => {
+    e.preventDefault();
+    // update result by id
+    const { name, age, height } = this.state
+    const payload = { name, age, height }
+    const id = this.props.match.params.id 
+
+    axios.put(`http://localhost:3333/smurfs/${id}`, payload)
+    .then((response) => {
+      this.setState({ errorMessage: null })
+      this.props.updateState(response.data)
+      this.props.history.push("/smurfs")
+    })
+    .catch((err) => {
+      console.log(err)
+      this.setState({ errorMessage: err })
+    })
+  }
+
+  deleteSmurf = () => {
+
+  }
+
   render() {
+    const { name, age, height, errorMessage } = this.state
+
     return (
       <div className="SmurfForm">
         <h2>Edit</h2>
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.updateSmurf}>
           <input
-            onChange={this.handleInputChange}
+            onChange={this.handleChange}
             placeholder="name"
-            value={this.state.name}
+            value={name}
             name="name"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.handleChange}
             placeholder="age"
-            value={this.state.age}
+            value={age}
             name="age"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.handleChange}
             placeholder="height"
-            value={this.state.height}
+            value={height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" className="update">Save</button>
+          <button id='deleteBtn' onClick={this.deleteSmurf} className="update">Delete</button>
         </form>
+        <p>{errorMessage}</p>
       </div>
     );
   }
