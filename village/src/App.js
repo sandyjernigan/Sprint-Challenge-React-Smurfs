@@ -3,7 +3,7 @@ import { Route, NavLink } from "react-router-dom";
 import axios from "axios";
 
 // import Components
-import { Home, Footer, Smurfs, SmurfForm, SmurfbyID, UpdateSmurf } from "./components/"
+import { Home, Footer, Smurfs, New, SmurfForm, SmurfbyID, UpdateSmurf } from "./components/"
 
 // import style sheets
 import './App.css';
@@ -38,8 +38,10 @@ class App extends Component {
     this.setState(this.state); // may remove when routed.
   }
 
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
     const { smurfs } = this.state
 
@@ -54,8 +56,8 @@ class App extends Component {
         <Route path="/" exact render={(props) => <Home {...props} smurfs={smurfs} />} />
         <Route path="/smurfs" exact render={(props) => <Smurfs {...props} smurfs={smurfs} />} />
         <Route path="/smurf/:id" render={(props) => <SmurfbyID {...props} smurfs={smurfs} />} />
-        <Route path="/new-smurf" exact render={(props) => <SmurfForm {...props} smurfs={smurfs} updateState={this.updateState} />} />
-        <Route path="/edit-smurf/:id" exact render={(props) => <UpdateSmurf {...props} smurfs={smurfs} updateState={this.updateState} />} />
+        <Route path="/edit-smurf/:id" exact render={(props) => <UpdateSmurf {...props} smurfs={smurfs} updateState={this.updateState} handleChange = {this.handleChange} />} />
+        <Route path="/new" exact render={(props) => <New {...props} smurfs={smurfs} updateState={this.updateState}  handleChange = {this.handleChange} />} />
         <Footer />
       </div>
     );
