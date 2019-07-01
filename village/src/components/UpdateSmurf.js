@@ -46,8 +46,21 @@ class SmurfForm extends Component {
     })
   }
 
-  deleteSmurf = () => {
+  deleteSmurf = e => {
+    e.preventDefault();
+    // delete result by id
+    const id = this.props.match.params.id 
 
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then((response) => {
+      this.setState({ errorMessage: null })
+      this.props.updateState(response.data)
+      this.props.history.push("/smurfs")
+    })
+    .catch((err) => {
+      console.log(err)
+      this.setState({ errorMessage: err })
+    })
   }
 
   render() {
