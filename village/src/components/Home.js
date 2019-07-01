@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom";
+import smurf from '../img/smurf.png';
 
 export default function () {
   return (
@@ -13,6 +14,8 @@ export default function () {
       <h2>
         <Link to="/smurfs">Smurfs Village</Link>
       </h2>
+
+      <img src={smurf} width="200px" />
     </div>
   )
 }
